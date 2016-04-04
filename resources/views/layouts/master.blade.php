@@ -9,7 +9,6 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/app.css">
 
@@ -25,7 +24,7 @@
         <div class="title-bar-title">Menu</div>
       </div>
       <div class="large-12 columns">
-        <nav class="top-bar" id="example-menu" data-topbar role="navigation">
+        <nav class="top-bar" id="example-menu" data-topbar>
           <div class="top-bar-left">
             <ul class="dropdown menu vertical medium-horizontal" data-dropdown-menu>
               <li class="menu-text">Developer's Best Friend</li>

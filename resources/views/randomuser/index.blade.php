@@ -36,5 +36,5 @@ Random User Generator
       </div>
   @endif
 
-</div>
+</form>
 @stop
