@@ -16,26 +16,32 @@ class RandomUserController extends Controller
     {
         return view('randomuser.index');
     }
+
     public function postRandomUser(Request $request)
     {
-      //dd($request->all());
       $this->validate($request, [
         'numUsers' => 'required|numeric|min:1|max:50',
         ]);
 
         $data = $request->all();
         // use the factory to create a Faker\Generator instance
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
 
         $userData = [];
 
-        $userData['name'] = $faker->name;
-        $userData['birthdate'] = $faker->birthdate;
-        $userData['phone'] = $faker->phone;
-        $userData['address'] = $faker->address;
-        $userData['profile'] = $faker->text;
-    
-        return view('randomuser.index', ['data' => $data, 'userData' => $userData]);
+        for($i=0; $i < $data['numUsers']; $i++) {
+        $temp = [];
+        $temp['name'] = $faker->name;
+        $temp['birthdate'] = $faker->date;
+        $temp['phone'] = $faker->phoneNumber;
+        $temp['address'] = $faker->address;
+        $temp['profile'] = $faker->text;
+
+        $userData[$i] = $temp;
+        }
+
+        // dd($userData);   
+        return view('randomuser.index')->with(['userData' => $userData]);
     }
 
 }

@@ -6,13 +6,13 @@ Lorem Ipsum Generator
 
 @section('content')
   <form method='POST' action='/LoremIpsum'>
-  {{ csrf_field() }}
+  <input type='hidden' name='_token' value='{{csrf_token()}}'>
   <div class="row">
     <div class="large-12 columns">
-      <label>Paragraphs
+      <h3># of Paragraphs
         <input type="text" placeholder="1-50" id='numParagraphs' name='numParagraphs' value={{ old('numParagraphs') }}>
-      </label>
-				<button type='submit' class='button success'>Submit</button>
+      </h3>
+				<button type='submit' class='button success'>Generate</button>
 
 			@if(count($errors) > 0)
 				<ul data-alert class="callout warning">
@@ -31,7 +31,7 @@ Lorem Ipsum Generator
 		<!-- if any paragraphs were created by the Controller, they will show up here -->
 		@if(isset($paragraphs))
 			<div class="row">
-				<div class="result">
+				<div class="large-12 columns">
 					@foreach($paragraphs as $paragraph)
 						{{ $paragraph }}<p><p>
 					@endforeach

@@ -20,7 +20,7 @@ class LoremIpsumController extends Controller
 
     public function postLorem(Request $request) {
         $this->validate($request, [
-          'numParagraphs' => 'required|numeric|min:1|max:99',
+          'numParagraphs' => 'required|numeric|min:1|max:50',
           ]);
 
         // Random text
